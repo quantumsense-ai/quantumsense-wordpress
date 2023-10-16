@@ -1,32 +1,39 @@
-# QuantumSense Website WordPress
+# QuantumSense Website: WordPress
 
-WordPress project serving as the base for the [QuantumSense website](https://github.com/quantumsense-ai/quantumsense).
+WordPress project serving as the base for the [QuantumSense website](https://quantumsense.ch/).
+
+> See also the [**quantumsense**](https://github.com/quantumsense-ai/quantumsense) repository.
 
 ## Description
 
-This repository contains a WordPress project which is used to develop the QuantumSense website.
+This repository contains the WordPress project that is used to develop the QuantumSense website that is hosted in the [**quantumsense**](https://github.com/quantumsense-ai/quantumsense) repository.
 
-WordPress is only used for editing the website. After making changes, the website is exported as a static website to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository and served with GitHub Pages
+The website is always edited through WordPress. After making changes, the website is then exported as a static website to the **quantumsense** repository with the [Simply Static](https://simplystatic.com/) WordPress plugin (see instructions below).
 
-Exporting the website is done with the [Simply Static](https://simplystatic.com/) WordPress plugin (see instructions below). The WordPress project itself is supposed to be used locally with [Local](https://localwp.com/).
+The WordPress project itself is supposed to locally hosted with [Local](https://localwp.com/) during development.
 
 ## Instructions
 
+To make changes to the website and publish it, proceed as follows:
+
 >  The following assumes that the WordPress project is already set up on the local machine with [Local](https://localwp.com/).
 
-1. Make sure you have a local clone of the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
-1. In WordPress Admin, make sure the Simply Static plugin is configured as follows:
-   1. Set _Deployment > Deployment Method_ to _Local Directory_
-   1. Set _Deployment > Local Directory > Path_ to the `docs/` directory in the local [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
-   1. Enable _Misc > Additional Settings > Clear Directory_
+1. Make sure you have a local clone of the [quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
+1. Make sure that the Simply Static plugin is configured as follows in WordPress Admin:
+   1. _Deployment > Deployment Method_ is set to _Local Directory_
+   1. _Deployment > Local Directory > Path_ is set to the `docs` directory in the local clone of the **quantumsense** repository
+   1. _Misc > Additional Settings > Clear Directory_ is enabled
 1. Edit the website through WordPress as usual
-1. After making changes, restart the WordPress instance by _Right-click > Restart_ in Local
+1. After making changes, restart the WordPress instance in Local (_Right-click > Restart_)
    - This is to ensure that all changes are written to disk
 1. Commit the changes to this repository
-1. Export the website to the quantumsense-ai/quantumsense repository by pressing _Generate Static Files_ in WordPress Admin
-1. Restore the deleted `CNAME` file in the `docs/` directory of the quantumsense-ai/quantumsense repository: `git restore docs/CNAME`
-   - The `CNAME` file (which is required for for GitHub Pages) in the output directory gets deleted by the _Clear Directory_ option of the Simply Static plugin and thus must be restored
-1. Commit the changes to the quantumsense-ai/quantumsense repository
+1. In WordPress Admin, press _Generate Static Files_ to export the website to the **quantumsense** repository with the Simply Static plugin
+1. In the **quantumsense** repository, restore the deleted `docs/CNAME` file as follows:
+   ```bash
+   git restore docs/CNAME
+   ```
+   - This is necessary because the Simply Static export deletes all files in the output directory before exporting, including the `CNAME` file, which is used by GitHub Pages.
+1. In the **quantumsense** repository, commit all changes and push to GitHub
 
 ### Notes
 
