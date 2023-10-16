@@ -4,30 +4,30 @@ WordPress project serving as the base for the [QuantumSense website](https://git
 
 ## Description
 
-This repository contains a WordPress project which is used to develop the QuantumSense website hosted in the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository.
+This repository contains a WordPress project which is used to develop the QuantumSense website.
 
-The website is developed in WordPress and then the static files are exported with the [Simply Static](https://simplystatic.com/) WordPress plugin and added to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository.
+WordPress is only used for editing the website. After making changes, the website is exported as a static website to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository and served with GitHub Pages
 
-This WordPress project is supposed to be used with [Local](https://localwp.com/).
+Exporting the website is done with the [Simply Static](https://simplystatic.com/) WordPress plugin (see instructions below). The WordPress project itself is supposed to be used locally with [Local](https://localwp.com/).
 
 ## Instructions
 
->  The following assumes that the WordPress project is already set up in Local.
+>  The following assumes that the WordPress project is already set up on the local machine with [Local](https://localwp.com/).
 
-1. Configure the Simply Static plugin in WordPress Admin as follows:
+1. Make sure you have a local clone of the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
+1. In WordPress Admin, make sure the Simply Static plugin is configured as follows:
    1. Set _Deployment > Deployment Method_ to _Local Directory_
-   1. Set _Deployment > Local Directory > Path_ to a local clone of [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense)
+   1. Set _Deployment > Local Directory > Path_ to the `docs/` directory in the local [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
    1. Enable _Misc > Additional Settings > Clear Directory_
-1. Make changes to the website through WordPress as usual
-1. Before committing or exporting the website, restart WordPress in Local with _Right-click > Restart_
+1. Edit the website through WordPress as usual
+1. After making changes, restart the WordPress instance by _Right-click > Restart_ in Local
    - This is to ensure that all changes are written to disk
-1. Commit the changes to the WordPress project to this repository
-1. Export the website by clicking _Generate Static Files_ in the Simply Static Menu in WordPress Admin
-   - This exports and writes the static website files to the local clone of the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository (provided that the Simply Static plugin has been set up as described above)
-1. Commit the changes to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
+1. Commit the changes to this repository
+1. Export the website to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository by pressing _Generate Static Files_ in WordPress Admin
+1. Commit the changes created by the above export to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
 
 ### Notes
 
-- Local expects the WordPress project to be at the following location:
+- Currently, Local expects the WordPress project to be at the following location:
     > `/Users/dw/Desktop/quantumsense-wordpress`
 - The credentials for WordPress Admin are `admin`/`admin`
