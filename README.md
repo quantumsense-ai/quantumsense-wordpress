@@ -23,8 +23,12 @@ Exporting the website is done with the [Simply Static](https://simplystatic.com/
 1. After making changes, restart the WordPress instance by _Right-click > Restart_ in Local
    - This is to ensure that all changes are written to disk
 1. Commit the changes to this repository
-1. Export the website to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository by pressing _Generate Static Files_ in WordPress Admin
-1. Commit the changes created by the above export to the [quantumsense-ai/quantumsense](https://github.com/quantumsense-ai/quantumsense) repository
+1. Export the website to the quantumsense-ai/quantumsense repository by pressing _Generate Static Files_ in WordPress Admin
+1. Recreate the `CNAME` file in the `docs/` directory of the quantumsense-ai/quantumsense repository:
+   ```bash
+   echo quantumsense.ai >quantumsense/docs/CNAME
+   ```
+1. Commit the changes to the quantumsense-ai/quantumsense repository
 
 ### Notes
 
